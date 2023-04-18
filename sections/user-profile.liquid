@@ -9,11 +9,6 @@
     class="flex">
 </div>
 <div class="range-slider">slider</div>
-<h1>
-  {% for block in section.blocks %}
-    <img src="{{block.settings.usr_img | img_url: 'master'}}" />
-  {% endfor %}
-</h1>
 <style>
   .flex {
     margin: 20px;
@@ -61,19 +56,6 @@
         "default": 100,
         "step": 10,
         "unit": "px"
-      }
-    ],
-    "blocks": [
-      {
-        "type": "image",
-        "name": "user Image",
-        "settings": [
-          {
-            "type": "image_picker",
-            "id": "usr_img",
-            "label": "img block"
-          }
-        ]
       }
     ],
     "presets": [

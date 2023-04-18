@@ -1,7 +1,7 @@
 {
   "sections": {
     "main": {
-      "type": "user-profile",
+      "type": "hello_dynamic_section",
       "settings": {
       }
     }
