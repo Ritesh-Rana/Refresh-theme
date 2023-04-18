@@ -1,7 +1,18 @@
 {
   "current": {
+    "sections": {
+      "9bac7346-5346-44c0-ba84-691a31a46e79": {
+        "type": "user-profile",
+        "settings": {
+          "usr_img": "shopify:\/\/shop_images\/rack-of-womens-clothing.jpg",
+          "usr_name": "20 % Off on This",
+          "usr_bio": "<p>Hurry up Buy It now .. !<\/p>",
+          "range": 100
+        }
+      }
+    },
     "content_for_index": [
-
+      "9bac7346-5346-44c0-ba84-691a31a46e79"
     ]
   }
 }
