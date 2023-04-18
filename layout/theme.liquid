@@ -7,12 +7,7 @@
   <meta name="description" content="{{ page_description | escape }}">
   <link rel="canonical" href="{{ canonical_url }}">
   <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-  <h1>
   {{ content_for_header }} <!-- Header hook for plugins -->
-  </h1>
-  <h2>
-  {{content_for_index}}
-  </h2>
   {{ 'application.css' | asset_url | stylesheet_tag }}
   {{ 'application.js' | asset_url | script_tag }}
 </head>
