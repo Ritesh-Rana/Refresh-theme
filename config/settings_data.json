@@ -1,0 +1,17 @@
+{
+  "current": {
+    "sections": {
+      "slider": {
+        "type": "slider",
+        "settings": {
+          "usr_name": "",
+          "usr_bio": "",
+          "range": 190
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  }
+}
