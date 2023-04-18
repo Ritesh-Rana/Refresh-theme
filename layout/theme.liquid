@@ -12,7 +12,7 @@
   {{ 'application.js' | asset_url | script_tag }}
 </head>
 <body>
-{% section 'slider' %}
+
   {% for link in linklists.main-menu.links %}
     {% assign child_list_handle = link.title | handleize %}
     {% if linklists[child_list_handle].links != blank %}
