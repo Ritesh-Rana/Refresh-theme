@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="image">
+    <img src="https://i.pinimg.com/564x/59/32/29/593229739184504afd9507cc42a9cb86.jpg">
+  </div>
+  <div class="text">
+    <h1>This is a beautiful picture.</h1>
+  </div>
+</div>
+
+<style>
+  .container {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 5px;
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .text {
+    font-size: 70px;
+  }
+</style>
+{% schema %}
+  {
+    "name": "Profile",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "usr_img",
+        "label": "img block"
+      }, {
+        "type": "text",
+        "id": "usr_name",
+        "label": "user Name"
+      }, {
+        "type": "richtext",
+        "id": "usr_bio",
+        "label": "user Bio"
+      }, {
+        "type": "range",
+        "id": "range",
+        "label": "range",
+        "min": 0,
+        "max": 200,
+        "default": 100,
+        "step": 10,
+        "unit": "px"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "user Image",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "usr_img",
+            "label": "img block"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "User Profile",
+        "category": "User Profile"
+      }
+    ]
+  }
+{% endschema %}
