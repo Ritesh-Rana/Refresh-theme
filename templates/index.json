@@ -1,7 +1,7 @@
 {
   "sections": {
     "main": {
-      "type": "hello_dynamic_section",
+      "type": "headder",
       "settings": {
       }
     }
