@@ -18,9 +18,9 @@
 </div>
 <div class="swiper-container">
   <div class="swiper-wrapper">
-    <div class="swiper-slide"><img src="image1.jpg"></div>
-    <div class="swiper-slide"><img src="image2.jpg"></div>
-    <div class="swiper-slide"><img src="image3.jpg"></div>
+    {% for block in section.blocks %}
+      <img src="{{block.settings.usr_img | img_url: '200x200'}}" />
+    {% endfor %}
   </div>
   <div class="swiper-pagination"></div>
 </div>
