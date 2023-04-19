@@ -4,29 +4,29 @@
       "14c76450-4dce-455e-99c3-65feb5bc5170": {
         "type": "slider",
         "blocks": {
-          "b0e03771-c3f2-4204-9c5d-e46cdc1efd06": {
+          "b9343129-c4fb-4862-b338-d5296c2263c5": {
             "type": "image",
             "settings": {
-              "usr_img": "shopify:\/\/shop_images\/flatlay-of-jade-face-roller-laying-on-a-grey-stone.jpg"
+              "usr_img": "shopify:\/\/shop_images\/static-on-a-plastic-tv-on-purple-background.jpg"
             }
           },
-          "d6fc9286-c218-4ee9-9653-701089870ca2": {
+          "7270df66-c4ea-45b0-89f1-fd411b6ea429": {
             "type": "image",
             "settings": {
-              "usr_img": "shopify:\/\/shop_images\/flatlay-of-jade-face-roller-laying-on-a-grey-stone.jpg"
+              "usr_img": "shopify:\/\/shop_images\/tuning-a-vintage-television-set.jpg"
             }
           },
-          "7df40426-b236-4bbb-9615-4dde11f635d7": {
+          "7b0ccf57-36c1-4c8c-8807-4f7ad4b5aaaf": {
             "type": "image",
             "settings": {
-              "usr_img": "shopify:\/\/shop_images\/flatlay-of-jade-face-roller-laying-on-a-grey-stone.jpg"
+              "usr_img": "shopify:\/\/shop_images\/monochromatic-vintage-tv-on-simple-background.jpg"
             }
           }
         },
         "block_order": [
-          "b0e03771-c3f2-4204-9c5d-e46cdc1efd06",
-          "d6fc9286-c218-4ee9-9653-701089870ca2",
-          "7df40426-b236-4bbb-9615-4dde11f635d7"
+          "b9343129-c4fb-4862-b338-d5296c2263c5",
+          "7270df66-c4ea-45b0-89f1-fd411b6ea429",
+          "7b0ccf57-36c1-4c8c-8807-4f7ad4b5aaaf"
         ],
         "settings": {
         }
