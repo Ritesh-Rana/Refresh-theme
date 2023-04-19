@@ -2,7 +2,7 @@
   <span>Image Slider</span>
 </div>
 {% for item in blocks.settings %}
-  {{item.usr_img | img_url: '200x200'}}
+  <img src="{{item.usr_img | img_url: '200x200'}}" />
 {% endfor %}
 {% schema %}
   {
