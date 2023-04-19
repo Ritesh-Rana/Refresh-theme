@@ -2,7 +2,7 @@
   <span>Image Slider</span>
 </div>
 {% for block in section.blocks %}
-  <img src="{{block.usr_img | img_url: '200x200'}}" />
+  <img src="{{block.settings.usr_img | img_url: '200x200'}}" />
 {% endfor %}
 {% schema %}
   {
