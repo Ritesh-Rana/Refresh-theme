@@ -12,6 +12,27 @@
     </div>
   </div>
 </div>
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="image1.jpg"></div>
+    <div class="swiper-slide"><img src="image2.jpg"></div>
+    <div class="swiper-slide"><img src="image3.jpg"></div>
+  </div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<!-- JavaScript code -->
+<script>
+var swiper = new Swiper('.swiper-container', {
+  autoplay: {
+    delay: 5000,
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+});
+</script>
 <style>
  
 .slider-container {
