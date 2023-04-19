@@ -6,14 +6,22 @@
       <input
         type="text"
         class="input"
+        placeholder="Enter Full Name" />
+      <input
+        type="text"
+        class="input"
         placeholder="Enter e-mail adress" />
+      <input
+        type="checkbox"
+        class="input"
+        placeholder="checkbox" />
       <button class="btn" type="submit">Subscribe</button>
     </form>
   </div>
 </div>
 <p id="msg" style="display: none;"></p>
 <style>
-  @import url('https://fonts.googleapis.com/css?family=Muli:300,700 &display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Muli:300, 700 &display=swap');
 
   * {
     box-sizing: border-box;
@@ -88,24 +96,22 @@
   }
 </style>
 <script>
-    
-    window.onload = function() {
+
+  window.onload = function() {
     var form = document.querySelector("#newsletter");
     form.onsubmit = submitted.bind(form);
-}
+  }
 
-function submitted(event) {
+  function submitted(event) {
     event.preventDefault();
     var msg = document.querySelector("#newsletter");
-    document.querySelector("#h2").style.display="none";
-    msg.style.display="block";
-    msg.style.color="green";
-    msg.innerHTML ="Bonga ! you have subcribed to our form";
-    setTimeout(
-        function(){
-            msg.style.display="none";
-        },5000
-    )
-    
-}
+    document.querySelector("#h2").style.display = "none";
+    msg.style.display = "block";
+    msg.style.color = "green";
+    msg.innerHTML = "Bonga ! you have subcribed to our form";
+    setTimeout(function() {
+      msg.style.display = "none";
+    }, 5000)
+
+  }
 </script>
