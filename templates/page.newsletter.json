@@ -1,16 +1,11 @@
 {
   "sections": {
-    "main": {
-      "type": "headder",
-      "settings": {}
-    },
     "newsletter-form":{
       "type": "newsletter-form",
       "settings": {}
     }
   },
   "order": [
-    "main",
     "newsletter-form"
   ]
 }
