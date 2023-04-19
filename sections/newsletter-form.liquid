@@ -1,5 +1,5 @@
 <div class="box">
-  <h2>Subscribe to our Newsletter</h2>
+  <h2 id="h2">Subscribe to our Newsletter</h2>
   <p>Our weekly newsletter provides you with the latest and most important happenings in the industry.</p>
   <div class="form-control">
     <form action="" id="newsletter">
@@ -97,7 +97,9 @@
 function submitted(event) {
     event.preventDefault();
     var msg = document.querySelector("#newsletter");
+    document.querySelector("#h2").style.display="none";
     msg.style.display="block";
+    msg.style.color="green";
     msg.innerHTML ="Bonga ! you have subcribed to our form";
     setTimeout(
         function(){
