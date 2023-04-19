@@ -19,15 +19,15 @@
 
 <!-- JavaScript code -->
 <script>
-  var swiper = new Swiper('.swiper-container', {
-    autoplay: {
-      delay: 5000
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true
-    }
+  $(document).ready(function(){
+    $('.slider').slick({
+      autoplay: true,
+      autoplaySpeed: 5000,
+      speed: 1000,
+      arrows: true,
+    });
   });
+  
 </script>
 <style></style>
 {% schema %}
