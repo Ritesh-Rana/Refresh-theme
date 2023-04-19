@@ -1,7 +1,39 @@
 {
   "current": {
+    "sections": {
+      "14c76450-4dce-455e-99c3-65feb5bc5170": {
+        "type": "slider",
+        "blocks": {
+          "b0e03771-c3f2-4204-9c5d-e46cdc1efd06": {
+            "type": "image",
+            "settings": {
+              "usr_img": "shopify:\/\/shop_images\/rack-of-womens-clothing.jpg"
+            }
+          },
+          "d6fc9286-c218-4ee9-9653-701089870ca2": {
+            "type": "image",
+            "settings": {
+              "usr_img": "shopify:\/\/shop_images\/0BE61EED-8B90-48DA-8F92-1CA1601983C5.jpg"
+            }
+          },
+          "7df40426-b236-4bbb-9615-4dde11f635d7": {
+            "type": "image",
+            "settings": {
+              "usr_img": "shopify:\/\/shop_images\/flatlay-of-jade-face-roller-laying-on-a-grey-stone.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "b0e03771-c3f2-4204-9c5d-e46cdc1efd06",
+          "d6fc9286-c218-4ee9-9653-701089870ca2",
+          "7df40426-b236-4bbb-9615-4dde11f635d7"
+        ],
+        "settings": {
+        }
+      }
+    },
     "content_for_index": [
-
+      "14c76450-4dce-455e-99c3-65feb5bc5170"
     ]
   }
 }
