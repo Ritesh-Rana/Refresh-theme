@@ -1,0 +1,44 @@
+{
+    "sections": {
+      "main": {
+        "type": "headder",
+        "settings": {
+        }
+      },
+      "839b59d3-79b2-46e5-ae53-54b765a32d0d": {
+        "type": "slider",
+        "blocks": {
+          "a4e22e2a-5992-42de-90e6-0eae811be16a": {
+            "type": "image",
+            "settings": {
+              "usr_img": "shopify:\/\/shop_images\/monochromatic-vintage-tv-on-simple-background.jpg"
+            }
+          },
+          "6d2c0547-9217-4a00-84e9-a3074e1d4677": {
+            "type": "image",
+            "settings": {
+              "usr_img": "shopify:\/\/shop_images\/tuning-a-vintage-television-set.jpg"
+            }
+          },
+          "14fe94fe-572e-4739-ba53-ccd0e9b827f3": {
+            "type": "image",
+            "settings": {
+              "usr_img": "shopify:\/\/shop_images\/static-on-a-plastic-tv-on-purple-background.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "a4e22e2a-5992-42de-90e6-0eae811be16a",
+          "6d2c0547-9217-4a00-84e9-a3074e1d4677",
+          "14fe94fe-572e-4739-ba53-ccd0e9b827f3"
+        ],
+        "settings": {
+        }
+      }
+    },
+    "order": [
+      "main",
+      "839b59d3-79b2-46e5-ae53-54b765a32d0d"
+    ]
+  }
+  
