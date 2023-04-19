@@ -2,7 +2,7 @@
   <h2>Subscribe to our Newsletter</h2>
   <p>Our weekly newsletter provides you with the latest and most important happenings in the industry.</p>
   <div class="form-control">
-    <form action="">
+    <form action="" id="newsletter">
       <input
         type="text"
         class="input"
@@ -11,7 +11,7 @@
     </form>
   </div>
 </div>
-
+<p id="msg" style="display: none;"></p>
 <style>
   @import url('https://fonts.googleapis.com/css?family=Muli:300,700 &display=swap');
 
@@ -87,4 +87,23 @@
     outline: 0;
   }
 </style>
-<script></script>
+<script>
+    
+    window.onload = function() {
+    var form = document.querySelector("#newsletter");
+    form.onsubmit = submitted.bind(form);
+}
+
+function submitted(event) {
+    event.preventDefault();
+    var msg = document.querySelector("#newsletter");
+    msg.style.display="block";
+    msg.innerHTML ="Bonga ! you have subcribed to our form";
+    setTimeout(
+        function(){
+            msg.style.display="none";
+        },5000
+    )
+    
+}
+</script>
