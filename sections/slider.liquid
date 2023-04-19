@@ -7,10 +7,9 @@
   <span>Image Slider</span>
 </div>
 
-<div class="swiper-container">
-  <div class="swiper-wrapper">
-    {% for block in section.blocks %}
-      <div class="swiper-slide">
+<div class="slider">
+  {% for block in section.blocks %}
+    <div class="slide">
         <img src="{{block.settings.usr_img | img_url: '1000x200'}}" />
       </div>
     {% endfor %}
