@@ -1,12 +1,13 @@
 <div>
   <span>Image Slider</span>
 </div>
-{% for item in blocks.settings %}
-  <img src="{{item.usr_img | img_url: '200x200'}}" />
+{% for block in section.blocks.settings %}
+  <img src="{{block.usr_img | img_url: '200x200'}}" />
 {% endfor %}
 {% schema %}
   {
     "name": "Image slider",
+    "max_blocks": 10,
     "blocks": [
       {
         "type": "image",
