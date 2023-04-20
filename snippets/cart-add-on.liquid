@@ -1,6 +1,5 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-{% assign free_gift_over_price_100 = 100 %}
 {% assign variant_id = '44979149275425' %}
 
 <script>
@@ -9,9 +8,16 @@
       qtyInTheCart = 0,
       cartUpdates = {},
       cartTotal = {{ cart.total_price }};
-    cartUpdates = {
-      {{ variant_id }}: 1
+    if (cartTotal >= 100) {
+      cartUpdates = {
+        {{ variant_id }}: 1
+      }
+    } else {
+      cartUpdates = {
+        {{ variant_id }}: 0
+      }
     }
+
     var params = {
       type: 'POST',
       url: '/cart/update.js',
@@ -20,7 +26,8 @@
       },
       dataType: 'json',
       success: function(stuff) {
-        //window.location.href = '/cart';
+
+// window.location.href = '/cart';
       }
     };
     $.ajax(params);
