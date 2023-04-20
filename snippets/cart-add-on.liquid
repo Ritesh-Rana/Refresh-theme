@@ -1,37 +1,26 @@
-{% assign free_gift_over_price_100 = 100 %} 
+{% assign free_gift_over_price_100 = 100 %}
 {% assign variant_id = '44979149275425' %}
 
-  <script>
+<script>
   (function($) {
     var cartItems = {{ cart.items | json }},
-        qtyInTheCart = 0,
-        cartUpdates = {},
-        cartTotal = {{ cart.total_price }};
-    for (var i=0; i<cartItems.length; i++) {
-      if ( cartItems[i].id === {{ variant_id }} ) {
-        qtyInTheCart = cartItems[i].quantity;
-        break;
-      }
-    }
-    if ( ( cartItems.length === 1 ) && ( qtyInTheCart > 0 ) ) {
-      cartUpdates = { {{ variant_id }}: 0 }
-    }
-    
-    else if ( ( cartItems.length >= 1 ) && ( qtyInTheCart !== 1 ) && (cartTotal >= {{ free_gift_over_price_30 }} ) ) {
-      cartUpdates = { {{ variant_id }}: 1 }
-    }
-    else {
-      return;
+      qtyInTheCart = 0,
+      cartUpdates = {},
+      cartTotal = {{ cart.total_price }};
+    cartUpdates = {
+      {{ variant_id }}: 1
     }
     var params = {
       type: 'POST',
       url: '/cart/update.js',
-      data: { updates: cartUpdates },
+      data: {
+        updates: cartUpdates
+      },
       dataType: 'json',
-      success: function(stuff) { 
+      success: function(stuff) {
         window.location.href = '/cart';
       }
     };
     $.ajax(params);
   })(jQuery);
-  </script>
+</script>
