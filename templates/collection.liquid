@@ -9,7 +9,7 @@
         {% unless product.available %}<br><strong>sold out</strong>
         {% endunless %}
         <a href="{{ product.url | within: collection }}">
-          <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+          <img src="{{ product.featured_image.src | img_url: '200x200' }}" alt="{{ product.featured_image.alt | escape }}">
         </a>
       </div>
     {% else %}
@@ -23,7 +23,6 @@
 {% endpaginate %}
 <style>
   .catalog {
-    display: inline-grid;
     grid-template-columns: auto auto auto;
     background-color: #2196F3;
     padding: 10px;
@@ -32,7 +31,7 @@
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
-    font-size: 30px;
+    font-size: 20px;
     text-align: center;
   }
 </style>
