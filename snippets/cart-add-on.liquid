@@ -25,10 +25,9 @@
         updates: cartUpdates
       },
       dataType: 'json',
-      success: function(stuff) {
-        window.location.href = '/cart';
-      }
+      success: function(stuff) {}
     };
     $.ajax(params);
+    window.location.href = '/cart';
   })(jQuery);
 </script>
