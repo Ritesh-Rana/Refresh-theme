@@ -18,11 +18,11 @@
       cartUpdates = {
         {{ variant_id }}: 0
       }
-    } else if ((cartItems.length >= 1) && (qtyInTheCart !== 1) && (cartTotal >= {{ free_gift_over_price_30 }})) {
+    } else if ((cartItems.length >= 1) && (qtyInTheCart !== 1) && (cartTotal >= 100)) {
       cartUpdates = {
         {{ variant_id }}: 1
       }
-    } 
+    }
     var params = {
       type: 'POST',
       url: '/cart/update.js',
