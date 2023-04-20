@@ -1,23 +1,37 @@
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% assign free_gift_over_price_100 = 100 %} 
+{% assign variant_id = '44979149275425' %}
 
-<script>
-  var subtotal = {{ cart.total_price | money_without_currency }};
-  var form = document.querySelector('#form');
-
-  $("#form").on("submit", function(e){
-    event.preventDefault(); // prevent the form from submitting normally
-  form.addEventListener('submit', (event) => {
-
-    const formData = new FormData(form);
-
-// create a new FormData object from the form
-
-// loop through the form data and log each key-value pair to the console
-    for (const [key, value] of formData.entries()) {
-      console.log(`${key}: ${value}`);
+  <script>
+  (function($) {
+    var cartItems = {{ cart.items | json }},
+        qtyInTheCart = 0,
+        cartUpdates = {},
+        cartTotal = {{ cart.total_price }};
+    for (var i=0; i<cartItems.length; i++) {
+      if ( cartItems[i].id === {{ variant_id }} ) {
+        qtyInTheCart = cartItems[i].quantity;
+        break;
+      }
     }
-    alert(formData);
-
-  });
-});
-</script>
+    if ( ( cartItems.length === 1 ) && ( qtyInTheCart > 0 ) ) {
+      cartUpdates = { {{ variant_id }}: 0 }
+    }
+    
+    else if ( ( cartItems.length >= 1 ) && ( qtyInTheCart !== 1 ) && (cartTotal >= {{ free_gift_over_price_30 }} ) ) {
+      cartUpdates = { {{ variant_id }}: 1 }
+    }
+    else {
+      return;
+    }
+    var params = {
+      type: 'POST',
+      url: '/cart/update.js',
+      data: { updates: cartUpdates },
+      dataType: 'json',
+      success: function(stuff) { 
+        window.location.href = '/cart';
+      }
+    };
+    $.ajax(params);
+  })(jQuery);
+  </script>
