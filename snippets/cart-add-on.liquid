@@ -3,31 +3,33 @@
 {% assign variant_id = '44979149275425' %}
 
 <script>
-    $("#form").submit(function(event) {
-    alert("hi");
+   
+$("input[type='number']").change(function() {
     var cartItems = {{ cart.items | json }},
-      qtyInTheCart = 0,
-      cartUpdates = {},
-      cartTotal = {{ cart.total_price | money_without_currency }};
+    qtyInTheCart = 0,
+    cartUpdates = {},
+    cartTotal = {{ cart.total_price | money_without_currency }};
 
-    if (cartTotal >= 100) {
-      cartUpdates = {
-        {{ variant_id }}: 1
-      }
-    } else {
-      cartUpdates = {
-        {{ variant_id }}: 0
-      }
+  if (cartTotal >= 100) {
+    cartUpdates = {
+      {{ variant_id }}: 1
     }
-    var params = {
-      type: 'POST',
-      url: '/cart/update.js',
-      data: {
-        updates: cartUpdates
-      },
-      dataType: 'json',
-      success: function(stuff) {}
-    };
-    $.ajax(params);
-    });
+  } else {
+    cartUpdates = {
+      {{ variant_id }}: 0
+    }
+  }
+  var params = {
+    type: 'POST',
+    url: '/cart/update.js',
+    data: {
+      updates: cartUpdates
+    },
+    dataType: 'json',
+    success: function(stuff) {}
+  };
+  $.ajax(params);
+  });
+  
+    
 </script>
