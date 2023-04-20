@@ -1,0 +1,8 @@
+<script>
+    jQuery.ajaxSetup({cache: false});
+    Shopify.getCart(function(cart) {
+        // add logic to see what items are in the cart and add a delivery one
+        // if needed
+        console.log(cart);
+    });
+</script>
