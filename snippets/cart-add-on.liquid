@@ -7,7 +7,8 @@
   (function($) {
     var cartItems = {{ cart.items | json }},
         qtyInTheCart = 0,
-        cartUpdates = {},
+        cartUpdatesadd = { {{ variant_id }}: 1 },
+        cartUpdatesremove = { {{ variant_id }}: 0 },
         cartTotal = {{ cart.total_price | money_without_currency }};
     for (var i=0; i<cartItems.length; i++) {
       if ( cartItems[i].id === {{ variant_id }} ) {
@@ -16,27 +17,30 @@
         break;
       }
     }
-    if ( ( cartItems.length === 1 ) && ( qtyInTheCart > 0 ) ) {
-      cartUpdates = { {{ variant_id }}: 0 }
-    }
-    
-    else if ( ( cartItems.length >= 1 ) && ( qtyInTheCart !== 1 ) && (cartTotal >= {{ free_gift_over_price_30 }} ) ) {
-      cartUpdates = { {{ variant_id }}: 1 }
-    }
-    else {
-      return;
-    }
-    var params = {
+
+    var add = {
       type: 'POST',
-      url: '/cart/update.js',
-      data: { updates: cartUpdates },
+      url: '/cart/add',
+      data: { updates: cartUpdatesadd },
+      dataType: 'json',
+      success: function(stuff) { 
+        window.location.href = '/cart';
+      }
+    };
+    var remove = {
+      type: 'POST',
+      url: '/cart/change',
+      data: { updates: cartUpdatesremove },
       dataType: 'json',
       success: function(stuff) { 
         window.location.href = '/cart';
       }
     };
     if(qtyInTheCart!==1 && cartTotal>={{ free_gift_over_price_30 }}){
-        $.ajax(params);
+        $.ajax(add);
+    }
+    if(cartTotal<{{ free_gift_over_price_30 }}){
+        $.ajax(remove);
     }
   })(jQuery);
   </script>
