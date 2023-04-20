@@ -1,6 +1,9 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
-    var cart ={{ cart.items | json }};
-        console.log(cart);
+    var subtotal ={{ cart.total_price | money_without_currency }};
+    jQuery("form").on("submit", function (e) {
+     e.preventDefault();
+     console.log(e);
+});
 </script>
