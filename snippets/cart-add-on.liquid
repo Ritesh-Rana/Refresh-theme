@@ -1,10 +1,6 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
-    jQuery.ajaxSetup({cache: false});
-    Shopify.getCart(function(cart) {
-        // add logic to see what items are in the cart and add a delivery one
-        // if needed
+    var cart ={{ cart.items | json }};
         console.log(cart);
-    });
 </script>
