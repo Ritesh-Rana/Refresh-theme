@@ -35,8 +35,8 @@
         window.location.href = '/cart';
       }
     };
-    {% comment %} //if(qtyInTheCart!==1 && cartTotal>={{ free_gift_over_price_30 }}){ {% endcomment %}
+    if(qtyInTheCart!==1 && cartTotal>={{ free_gift_over_price_30 }}){
         $.ajax(params);
-    {% comment %} //} {% endcomment %}
+    }
   })(jQuery);
   </script>
