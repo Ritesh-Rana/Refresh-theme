@@ -41,7 +41,7 @@
         {% endfor %}
       </tbody>
     </table>
-    <div>
+    <div class="update-btn">
       <p>sub total : {{ cart.total_price | money }}</p>
       <button type="submit" name="update">Update</button>
       <button type="submit" name="checkout">Checkout</button>
@@ -51,4 +51,10 @@
   <h2>cart</h2>
   Cart is empty
 {% endif %}
+<style>
+  .update-btn{
+    display: flex;
+    justify-content: center;
+  }
+</style>
 {% include 'cart-add-on' %}
