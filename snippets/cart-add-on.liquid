@@ -2,7 +2,9 @@
 
 <script>
   var subtotal = {{ cart.total_price | money_without_currency }};
-  document.querySelector('#form').addEventListener('submit', (event) => {
+  var form = document.querySelector('#form');
+
+  form.addEventListener('submit', (event) => {
     event.preventDefault(); // prevent the form from submitting normally
 
     const formData = new FormData(form);
