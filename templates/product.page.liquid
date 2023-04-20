@@ -1,40 +1,45 @@
 {% section 'headder' %}
 <div class="product">
-<h2>{{ product.title }}</h2>
-<img src="{{ product.featured_image | img_url: '200x200' }}" alt="product">
-<h3>{{ product.price | money_without_currency }}</h3>
-<p>{{ product.description }}</p>
-<form
-  action="/cart/add"
-  method="post"
-  enctype="multipart/form-data">
-  <select name="id">
-    {% for variant in product.variants %}
-      {% if variant.available == true %}
-        <option value="{{variant.id}}">
-          {{ variant.title }} for {{ variant.price | money_with_currency }}</option>
-      {% else %}
-        <option disabled="disabled">
-          {{ variant.title }} - sold out!</option>
-      {% endif %}
-    {% endfor %}
-  </select>
-  {% if {{ product.price | money_without_currency }}!=0.00 %}
-    <input
-      type="submit"
-      name="add"
-      id="add"
-      value="Add to Cart"
-      class="button">
-  {% endif %}
-</form>
+  <h2>{{ product.title }}</h2>
+  <img src="{{ product.featured_image | img_url: '200x200' }}" alt="product">
+</div>
+<div class="product">
+  {% assign price = {{ product.price | money_without_currency }} %}
+  <h3>{{ price }}</h3>
+  <p>{{ product.description }}</p>
+</div>
+<div class="product">
+  <form
+    action="/cart/add"
+    method="post"
+    enctype="multipart/form-data">
+    <select name="id">
+      {% for variant in product.variants %}
+        {% if variant.available == true %}
+          <option value="{{variant.id}}">
+            {{ variant.title }} for {{ variant.price | money_with_currency }}</option>
+        {% else %}
+          <option disabled="disabled">
+            {{ variant.title }} - sold out!</option>
+        {% endif %}
+      {% endfor %}
+    </select>
+    {% if price != 0.00 %}
+      <input
+        type="submit"
+        name="add"
+        id="add"
+        value="Add to Cart"
+        class="button">
+    {% endif %}
+  </form>
 </div>
 <style>
-    .product{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-        margin: 20px;
-    }
+  .product {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 20px;
+  }
 </style>
