@@ -11,7 +11,7 @@
         cartTotal = {{ cart.total_price }};
     for (var i=0; i<cartItems.length; i++) {
       if ( cartItems[i].id === {{ variant_id }} ) {
-        alert("free item found");
+        console.log("free item found");
         qtyInTheCart = cartItems[i].quantity;
         break;
       }
