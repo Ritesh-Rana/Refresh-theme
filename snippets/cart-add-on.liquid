@@ -5,6 +5,7 @@
 <script>
    
 $("input[type='number']").change(function() {
+    alert("change");
     var cartItems = {{ cart.items | json }},
     qtyInTheCart = 0,
     cartUpdates = {},
