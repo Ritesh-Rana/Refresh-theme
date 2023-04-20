@@ -4,6 +4,7 @@
 
 <script>
   $("#form").submit(function(event) {
+    setTimeout(function(){
     alert("hi");
     var cartItems = {{ cart.items | json }},
       qtyInTheCart = 0,
@@ -29,5 +30,6 @@
       success: function(stuff) {}
     };
     $.ajax(params);
+    },3000);
   });
 </script>
