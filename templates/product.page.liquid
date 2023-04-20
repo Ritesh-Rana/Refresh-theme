@@ -1,5 +1,7 @@
+{% section 'headder' %}
 <h2>{{ product.title }}</h2>
-{{ product.description }}
+<img src="{{ product.featured_image | img_url: '200x200' }}" alt="product">
+<p>{{ product.description }}</p>
 <form
   action="/cart/add"
   method="post"
