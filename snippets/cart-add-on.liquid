@@ -5,8 +5,8 @@
   var form = document.querySelector('#form');
 
   $("#form").on("submit", function(e){
-  form.addEventListener('submit', (event) => {
     event.preventDefault(); // prevent the form from submitting normally
+  form.addEventListener('submit', (event) => {
 
     const formData = new FormData(form);
 
