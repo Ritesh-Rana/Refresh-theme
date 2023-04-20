@@ -20,7 +20,7 @@
               <a href="{{ item.url }}">{{ item.product.title }}</a>
               {{ item.variant.title }}
               {% assign zeroprice = {{ item.price | money_without_currency }} %}
-              {% if( zeroprice !=0.00) %}
+              {% if zeroprice != 0.00 %}
                 <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">remove</a>
               {% endif %}
             </td>
