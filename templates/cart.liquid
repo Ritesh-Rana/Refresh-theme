@@ -21,7 +21,7 @@
               {{ item.variant.title }}
               
               {% if item.price  != 0.00 %}
-                  <h3>Zero price is here// {{ item.price }} //</h3>
+                  {% comment %} <h3>Zero price is here// {{ item.price }} //</h3> {% endcomment %}
                 <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">remove</a>
               {% endif %}
             </td>
