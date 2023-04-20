@@ -3,7 +3,8 @@
 {% assign variant_id = '44979149275425' %}
 
 <script>
-  $("#form").submit(function(event) {
+    $("#form").submit(function(event) {
+      $("#form").submit();
     alert("hi");
     var cartItems = {{ cart.items | json }},
       qtyInTheCart = 0,
@@ -30,5 +31,4 @@
     };
     $.ajax(params);
     },3000);
-  $("#form").submit();
 </script>
