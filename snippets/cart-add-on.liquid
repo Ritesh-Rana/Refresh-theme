@@ -4,6 +4,7 @@
 
 <script>
   $("#form").submit(function(event) {
+    alert("hi");
     var cartItems = {{ cart.items | json }},
       qtyInTheCart = 0,
       cartUpdates = {},
