@@ -1,11 +1,13 @@
 {% section 'headder' %}
 {% paginate collection.products by 4 %}
+  <div class="catalog">
     <h1>{{ collection.title }}</h1>
     {% for product in collection.products %}
-      <div class="">
+      <div class="product">
         <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
         {{ product.price | money }}
-        {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
+        {% unless product.available %}<br><strong>sold out</strong>
+        {% endunless %}
         <a href="{{ product.url | within: collection }}">
           <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
         </a>
@@ -16,5 +18,21 @@
     {% if paginate.pages > 1 %}
       {{ paginate | default_pagination }}
     {% endif %}
-  {% endpaginate %}
-  
+  </div>
+
+{% endpaginate %}
+<style>
+  .catalog {
+    display: inline-grid;
+    grid-template-columns: auto auto auto;
+    background-color: #2196F3;
+    padding: 10px;
+  }
+  .product {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+</style>
