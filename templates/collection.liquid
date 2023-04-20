@@ -1,8 +1,8 @@
 {% section 'headder' %}
-{% paginate collection.products by 2 %}
+{% paginate collection.products by 4 %}
     <h1>{{ collection.title }}</h1>
     {% for product in collection.products %}
-      <div>
+      <div class="">
         <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
         {{ product.price | money }}
         {% unless product.available %}<br><strong>sold out</strong>{% endunless %}

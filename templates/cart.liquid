@@ -28,7 +28,9 @@
             </td>
             <td>{{ item.price | money }}</td>
             <td>
-              <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
+              {% if item.price  != 0.00 %}
+                <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
+              {% endif %}
             </td>
             <td>
               {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
