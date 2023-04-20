@@ -17,10 +17,12 @@
       {% endif %}
     {% endfor %}
   </select>
-  <input
-    type="submit"
-    name="add"
-    id="add"
-    value="Add to Cart"
-    class="button">
+  {% if product.price!=0 %}
+    <input
+      type="submit"
+      name="add"
+      id="add"
+      value="Add to Cart"
+      class="button">
+  {% endif %}
 </form>
