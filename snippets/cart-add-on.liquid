@@ -7,7 +7,7 @@
     var cartItems = {{ cart.items | json }},
       qtyInTheCart = 0,
       cartUpdates = {},
-      cartTotal = {{ cart.total_price }};
+      cartTotal = {{ cart.total_price | money_without_currency }};
 
     if (cartTotal >= 100) {
       cartUpdates = {
