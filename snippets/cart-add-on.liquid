@@ -1,9 +1,21 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
-    var subtotal ={{ cart.total_price | money_without_currency }};
-    jQuery("form").on("submit", function (e) {
-     e.preventDefault();
-     console.log(e);
-});
+  var subtotal = {{ cart.total_price | money_without_currency }};
+  document.querySelector('form');
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault(); // prevent the form from submitting normally
+
+    const formData = new FormData(form);
+
+// create a new FormData object from the form
+
+// loop through the form data and log each key-value pair to the console
+    for (const [key, value] of formData.entries()) {
+      console.log(`${key}: ${value}`);
+    }
+
+// do whatever you want with the form data here...
+  });
 </script>
