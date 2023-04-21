@@ -27,7 +27,10 @@
       data: { updates: cartUpdates },
       dataType: 'json',
       success: function(stuff) { 
-        window.location.href = '/cart';
+        if(cartUpdates.variant_id==1)
+          alert("free product added to cart")
+        else
+          alert("free product removed from cart")
       }
     };
     $.ajax(params);
