@@ -23,13 +23,10 @@
     }
 
     if (cartTotal >= {{ free_gift_over_price_30 }}) {
-      data = {
-        "id": variant_id,
-        "quantity": 1
-      }
+      data = cartUpdatesadd;
       jQuery.ajax({
         type: 'POST',
-        url: '/cart/add',
+        url: '/cart/update',
         data: data,
         dataType: 'json',
         success: function() {
@@ -38,13 +35,10 @@
         }
       });
     } else {
-      data = {
-        "id": variant_id,
-        "quantity": 0
-      }
+      data = cartUpdatesremove;
       jQuery.ajax({
         type: 'POST',
-        url: '/cart/add',
+        url: '/cart/update',
         data: data,
         dataType: 'json',
         success: function() {
