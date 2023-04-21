@@ -14,15 +14,12 @@
         break;
       }
     }
-    if ( ( cartItems.length === 1 ) && ( qtyInTheCart > 0 ) ) {
-      cartUpdates = { {{ variant_id }}: 0 }
-    }
-    
-    else if ( ( cartItems.length >= 1 ) && ( qtyInTheCart !== 1 ) && (cartTotal >= {{ free_gift_over_price_30 }} ) ) {
+    if (cartTotal >= {{ free_gift_over_price_30 }} ) {
       cartUpdates = { {{ variant_id }}: 1 }
     }
+    
     else {
-      return;
+      cartUpdates = { {{ variant_id }}: 0 }
     }
     var params = {
       type: 'POST',
