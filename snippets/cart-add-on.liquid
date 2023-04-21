@@ -1,46 +1,58 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-{% assign free_gift_over_price_30 = 40 %} 
+{% assign free_gift_over_price_30 = 40 %}
 {% assign variant_id = '44979149275425' %}
 
-  <script>
+<script>
   (function($) {
     var cartItems = {{ cart.items | json }},
-        qtyInTheCart = 0,
-        cartUpdatesadd = { {{ variant_id }}: 1 },
-        cartUpdatesremove = { {{ variant_id }}: 0 },
-        cartTotal = {{ cart.total_price | money_without_currency }};
-    for (var i=0; i<cartItems.length; i++) {
-      if ( cartItems[i].id === {{ variant_id }} ) {
+      qtyInTheCart = 0,
+      cartUpdatesadd = {
+        {{ variant_id }}: 1
+      },
+      cartUpdatesremove = {
+        {{ variant_id }}: 0
+      },
+      cartTotal = {{ cart.total_price | money_without_currency }};
+    for (var i = 0; i < cartItems.length; i++) {
+      if (cartItems[i].id === {{ variant_id }}) {
         console.log("free item found");
         qtyInTheCart = cartItems[i].quantity;
         break;
       }
     }
 
-    var add = {
-      type: 'POST',
-      url: '/cart/add',
-      data: { updates: cartUpdatesadd },
-      dataType: 'json',
-      success: function(stuff) { 
-        window.location.href = '/cart';
+    if (cartTotal >= {{ free_gift_over_price_30 }}) {
+      data = {
+        "id": variant_id,
+        "quantity": 1
       }
-    };
-    var remove = {
-      type: 'POST',
-      url: '/cart/change',
-      data: { updates: cartUpdatesremove },
-      dataType: 'json',
-      success: function(stuff) { 
-        window.location.href = '/cart';
+      jQuery.ajax({
+        type: 'POST',
+        url: '/cart/add',
+        data: data,
+        dataType: 'json',
+        success: function() {
+          alert("Free product added to cart")
+          event.preventDefault();
+        }
+      });
+    } else {
+      data = {
+        "id": variant_id,
+        "quantity": 0
       }
-    };
-    if(qtyInTheCart!==1 && cartTotal>={{ free_gift_over_price_30 }}){
-        $.ajax(add);
+      jQuery.ajax({
+        type: 'POST',
+        url: '/cart/add',
+        data: data,
+        dataType: 'json',
+        success: function() {
+          alert("Free product removed from cart")
+          event.preventDefault();
+        }
+      });
     }
-    if(cartTotal<{{ free_gift_over_price_30 }}){
-        $.ajax(remove);
-    }
-  })(jQuery);
-  </script>
+    event.preventDefault();
+  });
+</script>
