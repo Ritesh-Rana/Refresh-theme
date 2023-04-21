@@ -4,34 +4,10 @@
   {% assign free_gift_over_price_30 = 100 %}
   {% assign variant_id = '44979149275425' %}
   $('input[type=number]').change(function(){
-    alert($(this).attr("id").split(':')[0].split('_')[1]);
-    var cartItems = {{ cart.items | json }},
-        qtyInTheCart = 0,
-        cartUpdates = {},
-        cartTotal = {{ cart.total_price | money_without_currency }};
-    for (var i=0; i<cartItems.length; i++) {
-      if ( cartItems[i].id === {{ variant_id }} ) {
-        qtyInTheCart = cartItems[i].quantity;
-        break;
-      }
-    }
-    if (cartTotal >= {{ free_gift_over_price_30 }} ) {
-      cartUpdates = { {{ variant_id }}: 1 };
-      //alert(JSON.stringify (cartUpdates));
-    }
-    
-    else {
-      cartUpdates = { {{ variant_id }}: 0 };
-      //alert(JSON.stringify (cartUpdates));
-
-    }
-    jQuery.ajax({
-      type: 'POST',
-      url: '/cart/update',
-      data: cartUpdates,
-      dataType: 'json',
-      success: function() {
-        
+    var along = $(this).attr("id").split(':')[0].split('_')[1];
+    jQuery.post(window.Shopify.routes.root + 'cart/update.js', {
+      updates: {
+        [along]:$(this).val();
       }
     });
   });
