@@ -25,7 +25,7 @@
     jQuery.ajax({
       type: 'POST',
       url: '/cart/update',
-      data: data,
+      data: cartUpdates,
       dataType: 'json',
       success: function() {
         event.preventDefault();
