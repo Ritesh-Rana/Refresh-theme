@@ -29,7 +29,7 @@
       success: function(stuff) { 
         if(cartUpdates.variant_id==1)
           alert("free product added to cart")
-        else
+        if(cartUpdates.variant_id==0)
           alert("free product removed from cart")
       }
     };
