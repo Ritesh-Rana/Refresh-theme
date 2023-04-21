@@ -11,32 +11,33 @@
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify({ quantity: updateproductqty, line: updateproductline })
     });
-    setTimeout(function(){
-    if( {{ cart.total_price | money_without_currency }}>=100 ){
-      var params = {
-      type: 'POST',
-      url: '/cart/update.js',
-      data: { updates: {  44979149275425  : 1 } },
-      dataType: 'json',
-      success: function(stuff) { 
-        window.location.href = '/cart';
-      }
-    };
-    $.ajax(params);
-    }
-    else{
-      var params = {
-      type: 'POST',
-      url: '/cart/update.js',
-      data: { updates: {  44979149275425  : 0 } },
-      dataType: 'json',
-      success: function(stuff) { 
-        window.location.href = '/cart';
-      }
-    };
-    $.ajax(params);
-    }
-    },2000);
   });
-  
+  $(document).ready({
+    setTimeout(function(){
+      if( {{ cart.total_price | money_without_currency }}>=100 ){
+        var params = {
+        type: 'POST',
+        url: '/cart/update.js',
+        data: { updates: {  44979149275425  : 1 } },
+        dataType: 'json',
+        success: function(stuff) { 
+          window.location.href = '/cart';
+        }
+      };
+      $.ajax(params);
+      }
+      else{
+        var params = {
+        type: 'POST',
+        url: '/cart/update.js',
+        data: { updates: {  44979149275425  : 0 } },
+        dataType: 'json',
+        success: function(stuff) { 
+          window.location.href = '/cart';
+        }
+      };
+      $.ajax(params);
+      }
+      },2000);
+  });
 </script>
