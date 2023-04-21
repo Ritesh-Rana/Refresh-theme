@@ -1,4 +1,6 @@
 {% section 'headder' %}
+{% include 'ajaxify-cart' %}
+
 <div class="product">
   <h2>{{ product.title }}</h2>
   <img src="{{ product.featured_image | img_url: '200x200' }}" alt="product">
@@ -33,6 +35,24 @@
         class="button">
       <button class="button" id="addbyajax">Add to cart by Ajax</button>
     {% endif %}
+  </form>
+  <form method="post" action="/cart/add">
+    <input
+      type="hidden"
+      name="id"
+      value="{{ product.variants.first.id }}" />
+    <label for="quantity">Qty:
+    </label>
+    <input
+      min="1"
+      type="number"
+      id="quantity"
+      name="quantity"
+      value="1" />
+    <input
+      type="submit"
+      value="Add to cart"
+      class="btn" />
   </form>
 </div>
 <style>
