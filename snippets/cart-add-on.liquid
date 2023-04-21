@@ -23,6 +23,18 @@
     };
     $.ajax(params);
     }
+    else{
+      var params = {
+      type: 'POST',
+      url: '/cart/update.js',
+      data: { updates: { [ 44979149275425 ] : 0 } },
+      dataType: 'json',
+      success: function(stuff) { 
+        window.location.href = '/cart';
+      }
+    };
+    $.ajax(params);
+    }
   });
   
 </script>
