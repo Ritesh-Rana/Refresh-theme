@@ -13,7 +13,7 @@
     action="/cart/add"
     method="post"
     enctype="multipart/form-data">
-    <select name="id">
+    <select name="id" id="selectedvarid">
       {% for variant in product.variants %}
         {% if variant.available == true %}
           <option value="{{variant.id}}">
@@ -31,6 +31,7 @@
         id="add"
         value="Add to Cart"
         class="button">
+      <button class="button" id="addbyajax">Add to cart by Ajax</button>
     {% endif %}
   </form>
 </div>
@@ -43,3 +44,32 @@
     margin: 20px;
   }
 </style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $('#add-to-cart-button').click(function() {
+    var ID = $('#selectedvarid').find(":selected").val();
+    addItemToCart(ID, 1). // paste your id product number
+  });
+
+  function addItemToCart(variant_id, qty) {
+    data = {
+      "id": variant_id,
+      "quantity": qty
+    }
+
+    jQuery.ajax({
+      type: 'POST',
+      url: '/cart/add.js',
+      data: data,
+      dataType: 'json',
+      success: function() {
+        document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', {
+          bubbles: true // this code is for prestige theme, is to refresh the cart
+        }));
+      }
+    });
+    document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', {
+      bubbles: true // same code for prestige theme
+    }));
+  }
+</script>
