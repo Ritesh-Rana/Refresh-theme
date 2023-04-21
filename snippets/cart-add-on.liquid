@@ -27,6 +27,7 @@
       data: data,
       dataType: 'json',
       success: function() {
+        alert(cartUpdates.{{ variant_id }});
         if(cartUpdates.{{ variant_id }}==1)
           alert("Free product added into cart");
         else
