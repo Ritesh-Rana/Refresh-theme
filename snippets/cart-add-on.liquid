@@ -10,7 +10,9 @@
       method: "POST",
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify({ quantity: updateproductqty, line: updateproductline })
-    });
+    }).then(
+      window.location.href = '/cart';
+    );
     setTimeout(function(){
     if( {{ cart.total_price | money_without_currency }}>=100 ){
       var params = {
