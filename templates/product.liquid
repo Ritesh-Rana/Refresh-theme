@@ -1,3 +1,4 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 {% section 'headder' %}
 {% include 'ajaxify-cart' %}
 
@@ -64,11 +65,10 @@
     margin: 20px;
   }
 </style>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
   $('#addbyajax').click(function() {
     var ID = $('#selectedvarid').find(":selected").val();
-    addItemToCart(ID, 1). // paste your id product number
+    addItemToCart(ID, 1); // paste your id product number
   });
 
   function addItemToCart(variant_id, qty) {
