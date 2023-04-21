@@ -29,7 +29,7 @@
             <td>{{ item.price | money }}</td>
             <td>
               {% if item.price  != 0.00 %}
-                <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
+                <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0" line="{{ forloop.index }}">
               {% endif %}
             </td>
             <td>
