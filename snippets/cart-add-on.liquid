@@ -16,11 +16,14 @@
       }
     }
     if (cartTotal >= {{ free_gift_over_price_30 }} ) {
-      cartUpdates = { {{ variant_id }}: 1 }
+      cartUpdates = { {{ variant_id }}: 1 };
+      alert(JSON.stringify (cartUpdates));
     }
     
     else {
-      cartUpdates = { {{ variant_id }}: 0 }
+      cartUpdates = { {{ variant_id }}: 0 };
+      alert(JSON.stringify (cartUpdates));
+
     }
     jQuery.ajax({
       type: 'POST',
@@ -28,7 +31,7 @@
       data: cartUpdates,
       dataType: 'json',
       success: function() {
-        alert(cartUpdates.{{ variant_id }});
+        
       }
     });
   });
