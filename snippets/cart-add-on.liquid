@@ -11,6 +11,7 @@
       headers: { 'Content-Type': 'application/json'},
       body: JSON.stringify({ quantity: updateproductqty, line: updateproductline })
     });
+    setTimeout(function(){
     if( {{ cart.total_price | money_without_currency }}>=100 ){
       var params = {
       type: 'POST',
@@ -35,6 +36,7 @@
     };
     $.ajax(params);
     }
+    },2000);
   });
   
 </script>
