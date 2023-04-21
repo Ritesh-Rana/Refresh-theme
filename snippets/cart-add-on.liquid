@@ -12,7 +12,7 @@
       body: JSON.stringify({ quantity: updateproductqty, line: updateproductline })
     });
   });
-  $(document).ready(function{
+  $(document).ready(function(){
     setTimeout(function(){
       if( {{ cart.total_price | money_without_currency }}>=100 ){
         var params = {
