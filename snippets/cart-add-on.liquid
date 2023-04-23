@@ -18,6 +18,9 @@
         url: '/cart/update.js',
         data: { updates: {  44979149275425  : 1 } },
         dataType: 'json',
+        success: function(stuff) { 
+          window.location.href = '/cart';
+        }
       };
       $.ajax(params);
       }
@@ -27,12 +30,12 @@
         url: '/cart/update.js',
         data: { updates: {  44979149275425  : 0 } },
         dataType: 'json',
+        success: function(stuff) { 
+          window.location.href = '/cart';
+        }
       };
       $.ajax(params);
       }
-      setTimeout(()=>{
-        window.location.href = '/cart';
-      },2000);
       },2000);
     });
   });
