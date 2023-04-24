@@ -34,10 +34,15 @@
       ],
       "settings": {
       }
+    },
+    "video-desktop": {
+      "type": "video-desktop",
+      "settings": {}
     }
   },
   "order": [
     "main",
-    "839b59d3-79b2-46e5-ae53-54b765a32d0d"
+    "839b59d3-79b2-46e5-ae53-54b765a32d0d",
+    "video-desktop"
   ]
 }

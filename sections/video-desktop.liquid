@@ -1,9 +1,12 @@
-<div class="desktop-video">
-  <iframe
-    id="framevideo"
-    src=""
-    style="height: 600px; width:600px "></iframe>
+<div class="video-container">
+  <div class="desktop-video">
+    <iframe
+      id="framevideo"
+      src=""
+      style="height: 600px; width:600px "></iframe>
+  </div>
 </div>
+
 <script>
   var isMobile = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|webOS|BlackBerry|IEMobile|Opera Mini)/i);
   let iframe = document.getElementById("framevideo");
@@ -31,3 +34,15 @@
     object-fit: cover;
   }
 </style>
+{% schema %}
+  {
+    "name": "Video for mobile and desktop",
+    "class": "video-mobile-desk",
+    "presets": [
+      {
+        "category": "Video",
+        "name": "Video"
+      }
+    ]
+  }
+{% endschema %}
