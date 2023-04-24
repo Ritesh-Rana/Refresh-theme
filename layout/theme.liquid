@@ -1,38 +1,34 @@
 <!doctype html>
 <html>
-<head>
-  <title>{{ page_title }}</title>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="description" content="{{ page_description | escape }}">
-  <link rel="canonical" href="{{ canonical_url }}">
-  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-  {{ content_for_header }} <!-- Header hook for plugins -->
-</head>
-<body>
+  <head>
+    <title>{{ page_title }}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="{{ page_description | escape }}">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    {{ content_for_header }}
+    <!-- Header hook for plugins -->
+  </head>
+  <body>
 
-  {% if shop.customer_accounts_enabled %}
-    {% if customer %}
-      <a href="/account">account</a>
-      {{ 'log out'  | customer_logout_link }}
-    {% else %}
-      {{ 'log in ' | customer_login_link }}
-      {{ 'register' | customer_register_link }}
-    {% endif %}
-  {% endif %}
-
-  <main role="main">
-    {{ content_for_layout }}
-    <div class="video-y">
-      <div class="video-container">
-      {% if request.user_agent.is_mobile %}
-          {% include 'video-mobile' %}
+    {% if shop.customer_accounts_enabled %}
+      {% if customer %}
+        <a href="/account">account</a>
+        {{ 'log out' | customer_logout_link }}
       {% else %}
-          {% include 'video-desktop' %}
+        {{ 'log in ' | customer_login_link }}
+        {{ 'register' | customer_register_link }}
       {% endif %}
-      </div>
-    </div>
+    {% endif %}
 
-  </main>
-</body>
+    <main role="main">
+      {{ content_for_layout }}
+      <div class="video-y">
+        <div class="video-container">
+          {% include 'video-desktop' %}
+        </div>
+      </div>
+    </main>
+  </body>
 </html>

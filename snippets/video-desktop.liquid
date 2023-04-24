@@ -1,6 +1,17 @@
 <div class="desktop-video">
-  <iframe src="https://www.youtube.com/embed/8Lka04vQyJ0?loop=1&autoplay=1&mute=1"></iframe>
+  <iframe id="framevideo" src=""></iframe>
 </div>
+<script>
+  <script>
+    var isMobile = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|webOS|BlackBerry|IEMobile|Opera Mini)/i);
+    let iframe = document.getElementById("framevideo");
+    if (isMobile) {
+      iframe.src = "https://www.youtube.com/embed/8Lka04vQyJ0?playlist=8Lka04vQyJ0&loop=1&autoplay=1&controls=1&showinfo=0&mute=1"
+    } else {
+      iframe.src = "https://www.youtube.com/embed/8Lka04vQyJ0?playlist=8Lka04vQyJ0&loop=1&autoplay=1&controls=1&showinfo=0&mute=1"
+    }
+  </script>
+</script>
 <style>
   /* Style the video container */
   .video-container {
