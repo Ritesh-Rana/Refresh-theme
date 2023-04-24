@@ -23,6 +23,7 @@
 
   <main role="main">
     {{ content_for_layout }}
+    <div class="video-y">
     {% if section.settings.video %}
      {% if template.name contains 'index' %}
        {% if section.settings.video %}
@@ -36,6 +37,7 @@
        {% endif %}
      {% endif %}
     {% endif %}
+    </div>
 
   </main>
 </body>
