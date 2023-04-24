@@ -1,4 +1,15 @@
 {% section 'headder' %}
+{% assign shipping_value = 7500 %}
+{% assign cart_total = cart.total_price %}
+{% assign shipping_value_left = shipping_value | minus: cart_total %}
+
+<p class="shipping-savings-message">
+  {% if shipping_value_left > 0 %}
+  You are {{ shipping_value_left | money }} away from free shipping!  <a href="/collections/all">Continue shopping</a> to add more products to your cart and receive free shipping for orders over $75.
+  {% else %}
+    You've got free shipping!
+  {% endif %}
+</p>
 {% if cart.item_count > 0 %}
   <h1>cart</h1>
   <form action="/cart" method="post" id="form" novalidate>
@@ -55,6 +66,13 @@
   .update-btn{
     display: flex;
     justify-content: center;
+  }
+    .shipping-savings-message {
+    background-color: #f9ffe6;
+    border: 3px solid green;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 25px;
   }
 </style>
 {% include 'cart-add-on' %}
