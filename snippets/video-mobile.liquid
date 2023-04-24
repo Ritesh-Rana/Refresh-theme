@@ -1,52 +1,46 @@
 <div class="mobile-video">
-  <video
-    autoplay
-    loop
-    muted>
-    <source src="https://www.youtube.com/watch?v=YC3uwUvoyQ8&pp=ygURdmlkZW8gZGVtbyBtb2JpbGU%3D" type="video/mp4">
-  </video>
+  <iframe src="https://www.youtube.com/watch?v=YC3uwUvoyQ8&pp=ygURdmlkZW8gZGVtbyBtb2JpbGU%3D?autoplay=1&mute=1"></iframe>
 </div>
 <style>
   /* Style the video container */
-.video-container {
-  position: relative;
-  width: 100%;
-  height: 0;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
-}
+  .video-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  }
 
-/* Style the video player */
-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+  /* Style the video player */
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-/* Style the desktop video container */
-.desktop-video {
-  display: none; /* Hide the desktop video by default */
-}
-
-/* Style the mobile video container */
-.mobile-video {
-  display: none; /* Hide the mobile video by default */
-}
-
-/* Show the desktop video on large screens */
-@media (min-width: 992px) {
+  /* Style the desktop video container */
   .desktop-video {
-    display: block;
+    display: none; /* Hide the desktop video by default */
   }
-}
 
-/* Show the mobile video on small screens */
-@media (max-width: 991px) {
+  /* Style the mobile video container */
   .mobile-video {
-    display: block;
+    display: none; /* Hide the mobile video by default */
   }
-}
 
+  /* Show the desktop video on large screens */
+  @media(min-width: 992px) {
+    .desktop-video {
+      display: block;
+    }
+  }
+
+  /* Show the mobile video on small screens */
+  @media(max-width: 991px) {
+    .mobile-video {
+      display: block;
+    }
+  }
 </style>
