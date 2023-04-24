@@ -24,16 +24,13 @@
   <main role="main">
     {{ content_for_layout }}
     <div class="video-y">
-    {% if section.settings.video %}
-     {% if template.name contains 'index' %}
-       {% if section.settings.video %}
-         <div class="video-container">
-           {% if media_size == 'large' %}
-             {% include 'video-desktop' %}
-           {% else %}
-             {% include 'video-mobile' %}
-           {% endif %}
-         </div>
+      <div class="video-container">
+      {% if request.user_agent.is_mobile %}
+          {% include 'video-mobile' %}
+      {% else %}
+          {% include 'video-desktop' %}
+      {% endif %}
+      </div>
        {% endif %}
      {% endif %}
     {% endif %}
