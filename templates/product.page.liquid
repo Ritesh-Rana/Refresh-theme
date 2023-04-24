@@ -9,6 +9,9 @@
   <p>{{ product.description }}</p>
 </div>
 <div class="product">
+  <p>Product Origin: {{ product.origin.product_weight }}</p>
+</div>
+<div class="product">
   <form
     action="/cart/add"
     method="post"
