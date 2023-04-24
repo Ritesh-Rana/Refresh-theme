@@ -2,18 +2,24 @@
 {% assign shipping_value = 7500 %}
 {% assign cart_total = cart.total_price %}
 {% assign shipping_value_left = shipping_value | minus: cart_total %}
-{% if(cart.item_count > 0) %}
-<p class="shipping-savings-message">
-  {% if shipping_value_left > 0 %}
-  You are {{ shipping_value_left | money }} away from free shipping!  <a href="/collections/all">Continue shopping</a> to add more products to your cart and receive free shipping for orders over $75.
-  {% else %}
-    You've got free shipping!
-  {% endif %}
-</p>
+{% if cart.item_count > 0 %}
+  <p class="shipping-savings-message">
+    {% if shipping_value_left > 0 %}
+      You are {{ shipping_value_left | money }} away from free shipping!
+      <a href="/collections/all">Continue shopping</a>
+      to add more products to your cart and receive free shipping for orders over $75.
+    {% else %}
+      You've got free shipping!
+    {% endif %}
+  </p>
 {% endif %}
 {% if cart.item_count > 0 %}
   <h1>cart</h1>
-  <form action="/cart" method="post" id="form" novalidate>
+  <form
+    action="/cart"
+    method="post"
+    id="form"
+    novalidate>
     <table>
       <thead>
         <th colspan="2">Prod</th>
@@ -32,22 +38,30 @@
             <td>
               <a href="{{ item.url }}">{{ item.product.title }}</a>
               {{ item.variant.title }}
-              
-              {% if item.price  != 0.00 %}
-                  {% comment %} <h3>Zero price is here// {{ item.price }} //</h3> {% endcomment %}
+
+                {% if item.price != 0.00 %}
+                {% comment %} <h3>Zero price is here// {{ item.price }} //</h3> {% endcomment %}
                 <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">remove</a>
               {% endif %}
             </td>
             <td>{{ item.price | money }}</td>
             <td>
-              {% if item.price  != 0.00 %}
-                <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0" line="{{ forloop.index }}">
+              {% if item.price != 0.00 %}
+                <input
+                  type="number"
+                  name="updates[]"
+                  id="updates_{{ item.key }}"
+                  value="{{ item.quantity }}"
+                  min="0"
+                  line="{{ forloop.index }}">
               {% endif %}
             </td>
             <td>
-              {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
+              {% if item.original_line_price != item.line_price %}
+                {{ item.original_line_price | money }}{% endif %}
               {{ item.line_price | money }}
-              {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
+              {% for discount in item.discounts %}
+                {{ discount.title }}{% endfor %}
             </td>
           </tr>
         {% endfor %}
@@ -64,11 +78,11 @@
   Cart is empty
 {% endif %}
 <style>
-  .update-btn{
+  .update-btn {
     display: flex;
     justify-content: center;
   }
-    .shipping-savings-message {
+  .shipping-savings-message {
     background-color: #f9ffe6;
     border: 3px solid green;
     padding: 20px;
