@@ -19,6 +19,7 @@
         data: { updates: {  44979149275425  : 1 } },
         dataType: 'json',
         success: function(stuff) { 
+          alert("added")
           window.location.href = '/cart';
         }
       };
@@ -31,6 +32,7 @@
         data: { updates: {  44979149275425  : 0 } },
         dataType: 'json',
         success: function(stuff) { 
+          alert("removed")
           window.location.href = '/cart';
         }
       };
